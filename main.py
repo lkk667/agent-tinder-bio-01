@@ -14,7 +14,12 @@ BIO = (
 )
 
 
+MAX_CHARS = 240
+
+
 def main():
+    if not 1 <= len(BIO) <= MAX_CHARS:
+        raise SystemExit(f"bio is {len(BIO)} characters, must be 1-{MAX_CHARS}")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as handle:
         handle.write(BIO)
